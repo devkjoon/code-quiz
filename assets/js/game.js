@@ -45,8 +45,8 @@ let questions = [
     }
 ]
 
-const scorePoints = 100
-const maxQuestions = 4
+const SCORE_POINTS = 100
+const MAX_QUESTIONS = 4
 
 startGame = () => {
     questionCounter = 0
@@ -56,19 +56,19 @@ startGame = () => {
 }
 
 getNewQuestion = () => {
-    if(availableQuestions.length === 0 || questionCounter > maxQuestions) {
+    if (availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score)
 
-        return window.location.assign('/end.html')
+        return window.location.assign("./end.html")
     }
 
     questionCounter++
-    progressText.innerText = `Question ${questionCounter} of ${maxQuestions}`
+    progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTIONS}`
     // calculate what question we're on, correspond with the percentage we're currently at
-    progressBarFull.style.width = `${(questionCounter/maxQuestions) * 100}%`
+    progressBarFull.style.width = `${(questionCounter/MAX_QUESTIONS) * 100}%`
 
-    const questionIndex = Math.floor(Math.random() * availableQuestions.length)
-    currentQuestion = availableQuestions.questionIndex
+    const questionsIndex = Math.floor(Math.random() * availableQuestions.length)
+    currentQuestion = availableQuestions[questionsIndex]
     question.innerText = currentQuestion.question
 
     choices.forEach(choice => {
@@ -76,7 +76,7 @@ getNewQuestion = () => {
         choice.innerText = currentQuestion['choice' + number]
     })
 
-    availableQuestions.splice(questionIndex, 1)
+    availableQuestions.splice(questionsIndex, 1)
 
     acceptingAnswers = true
 }
@@ -92,7 +92,7 @@ choices.forEach(choice => {
         let classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect'
 
         if(classToApply === 'correct') {
-            incrementScore(scorePoints)
+            incrementScore(SCORE_POINTS)
         }
 
         selectedChoice.parentElement.classList.add(classToApply)

@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Code Quiz</title>
+    <link rel="stylesheet" href="./assets/css/highscores.css">
+    <title>Highscores</title>
 </head>
-
 <body>
     <div class="container">
-        <div id="home" class="flex-column flex-center">
-            <h1>Ready?</h1>
-            <a href="./game.html" class="btn">Play</a>
-            <a href="./highscores.html" class="btn" id="highscore-btn">High Scores</a>
+        <div id="highscores" class="flex-center flex-column">
+            <h1 id="finalscore">Leaderboard</h1>
+            <ul id="highScoresList"></ul>
+            <a href="./index.html" class="btn">Go Home</a>
         </div>
     </div>
+    <script src="./assets/js/highscores.js"></script>
 </body>
-
 </html>
