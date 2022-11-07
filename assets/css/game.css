@@ -48,6 +48,10 @@ body {
     font-size: 2rem;
 }
 
+#timer {
+    font-size: 2rem;
+}
+
 .hud-main-text {
     text-align: center;
 }
